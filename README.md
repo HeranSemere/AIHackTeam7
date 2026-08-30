@@ -16,6 +16,36 @@ Workshop Photo ──────► Vision ──────────┘
 
 The system supports **English, Amharic (አማርኛ), and Afaan Oromo (Afaan Oromoo)**.
 
+Audio (English / Amharic / Afaan Oromo)
+                    │
+                    ▼
+             Speech-to-Text
+                    │
+                    │
+Business License ──► OCR
+                    │
+                    │
+Workshop Photo ────► GPT-5.6 Luna
+                    │
+                    ▼
+          Information Extraction
+                    │
+                    ▼
+       Pydantic Structured Fields
+                    │
+                    ▼
+       Normalize / Translate to English
+                    │
+                    ▼
+         Grant Application Form
+                    │
+                    ▼
+      Translate to Preferred Language
+          (English / Amharic / Oromo)
+                    │
+                    ▼
+              Application JSON
+
 ## Project Structure
 
 ### `main.py`
