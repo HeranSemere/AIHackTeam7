@@ -27,7 +27,7 @@ The system supports **English, Amharic (አማርኛ), and Afaan Oromo (Afaan Or
              ▼                          ▼                          ▼
     ┌─────────────────┐        ┌─────────────────┐        ┌─────────────────┐
     │  SPEECH-TO-TEXT │        │       OCR       │        │      Vision     │
-    │                 │        │                 │        │   **Agent:      │
+    │                 │        │                 │        │   __Agent:      │
     │ ElevenLabs /    │        │     OCRSpace    │        │  GPT-5.6-LUNA   │
     │ AssemblyAI/     │        │                 │        │                 │
     │ appropriate ASR │        │                 │        │                 │
