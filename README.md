@@ -56,13 +56,4 @@ Other endpoints handle saving and retrieving applications and ranking submitted 
 - Pydantic
 - OCR
 - Computer Vision
-- Gemeni
-
-## Setup
-
-Create a virtual environment:
-
-```bash
-python -m venv venv
-
-The response is a structured JSON application ready to be displayed, stored, or ranked.
+- Gemini
