@@ -56,6 +56,7 @@ Other endpoints handle saving and retrieving applications and ranking submitted 
 - Pydantic
 - OCR
 - Computer Vision
+- Gemeni
 
 ## Setup
 
