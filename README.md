@@ -124,6 +124,6 @@ Other endpoints handle saving and retrieving applications and ranking submitted 
 - OpenAI
 - AssemblyAI
 - Pydantic
-- OCR
+- OCRSpace
 - Computer Vision
 - Gemini
