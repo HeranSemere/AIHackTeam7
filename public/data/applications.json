@@ -1,0 +1,1019 @@
+[
+  {
+    "id": "almaz-spice-mill",
+    "businessName": "Almaz Spice Mill",
+    "owner": "Almaz Bekele",
+    "location": "Bekoji",
+    "sector": "Food Processing",
+    "businessType": "Sole Proprietorship",
+    "yearsOperating": 4,
+    "status": "needsReview",
+    "progress": 100,
+    "employment": {
+      "total": 8,
+      "female": 6,
+      "male": 2,
+      "youth": 3
+    },
+    "financial": {
+      "annualSales2023": 420000,
+      "annualSales2024": 610000,
+      "revenueGrowth": "+45%",
+      "fundingRequested": 500000
+    },
+    "management": "Owner-managed with one senior miller supervising two production lines.",
+    "equipment": [
+      {
+        "item": "Spice grinding mill",
+        "qty": 2,
+        "estValueETB": 180000
+      },
+      {
+        "item": "Packaging sealer",
+        "qty": 1,
+        "estValueETB": 45000
+      }
+    ],
+    "fundingRequest": {
+      "amount": 500000,
+      "purpose": "Purchase a second grinder and expand packaging line",
+      "expectedUse": "Equipment purchase and installation"
+    },
+    "evidence": [
+      {
+        "label": "Business Name",
+        "value": "Almaz Spice Mill",
+        "status": "verified",
+        "source": "Business Licence"
+      },
+      {
+        "label": "Owner",
+        "value": "Almaz Bekele",
+        "status": "verified",
+        "source": "Business Licence"
+      },
+      {
+        "label": "Employees",
+        "value": "8",
+        "status": "extracted",
+        "source": "Voice Note"
+      },
+      {
+        "label": "2024 Sales",
+        "value": "ETB 610,000",
+        "status": "needsConfirmation",
+        "source": "Voice Note"
+      },
+      {
+        "label": "Licence Start Date",
+        "value": "2020",
+        "status": "contradiction",
+        "source": "Business Licence",
+        "contradictionDetail": {
+          "otherSource": "Application form",
+          "otherValue": "2023",
+          "action": "Verify during site visit."
+        }
+      }
+    ],
+    "eligibility": {
+      "status": "eligible",
+      "checks": [
+        {
+          "label": "Valid business licence",
+          "passed": true
+        },
+        {
+          "label": "Meets operating requirements",
+          "passed": true
+        },
+        {
+          "label": "Funding purpose acceptable",
+          "passed": true
+        },
+        {
+          "label": "Required information available",
+          "passed": true
+        }
+      ]
+    },
+    "scoring": [
+      {
+        "key": "viability",
+        "label": "Business Viability",
+        "score": 19,
+        "max": 20,
+        "reason": "Four years of continuous operation with growing revenue and a diversified customer base.",
+        "evidence": [
+          "Voice transcript",
+          "Sales history"
+        ]
+      },
+      {
+        "key": "jobs",
+        "label": "Job Creation",
+        "score": 15,
+        "max": 15,
+        "reason": "The business employs 8 people, including 6 women.",
+        "evidence": [
+          "Voice transcript",
+          "Employment information"
+        ]
+      },
+      {
+        "key": "management",
+        "label": "Management",
+        "score": 13,
+        "max": 15,
+        "reason": "Owner-managed with one supervisor; no documented succession plan.",
+        "evidence": [
+          "Voice transcript"
+        ]
+      },
+      {
+        "key": "impact",
+        "label": "Impact",
+        "score": 19,
+        "max": 20,
+        "reason": "Expansion directly increases processing capacity for a women-majority workforce.",
+        "evidence": [
+          "Business photo",
+          "Employment information"
+        ]
+      },
+      {
+        "key": "financial",
+        "label": "Financial Readiness",
+        "score": 25,
+        "max": 30,
+        "reason": "Strong revenue growth, but 2024 bank statement is not yet attached.",
+        "evidence": [
+          "Voice transcript"
+        ]
+      }
+    ],
+    "finalScore": 91,
+    "contradictions": [
+      {
+        "id": "c1",
+        "title": "Business start date",
+        "fieldA": {
+          "label": "Licence",
+          "value": "Business started in 2023"
+        },
+        "fieldB": {
+          "label": "Application",
+          "value": "Business started in 2020"
+        },
+        "severity": "Medium",
+        "recommendedAction": "Verify during site visit."
+      }
+    ],
+    "missing": [
+      {
+        "id": "m1",
+        "label": "2024 bank statement",
+        "requiredFrom": "Applicant"
+      }
+    ],
+    "siteVisitQuestions": [
+      "When did the business officially begin operations?",
+      "Can you provide a 2024 bank statement or sales ledger?",
+      "Can you show the second grinding mill installation site?"
+    ],
+    "recommendation": {
+      "status": "Recommended",
+      "summary": "The business demonstrates strong employment impact and business viability. The licence is verified and there are no critical exclusion factors. One date discrepancy and one financial record require verification."
+    },
+    "declarations": [
+      {
+        "id": "d1",
+        "title": "Accuracy of information",
+        "text": "I confirm the information I provided is accurate to the best of my knowledge.",
+        "explained": true,
+        "accepted": true
+      },
+      {
+        "id": "d2",
+        "title": "Use of funds",
+        "text": "I agree to use any funding received only for the stated business purpose.",
+        "explained": true,
+        "accepted": true
+      },
+      {
+        "id": "d3",
+        "title": "Site visit consent",
+        "text": "I agree to a site visit by the funding organization for verification.",
+        "explained": true,
+        "accepted": true
+      }
+    ],
+    "proposal": {
+      "projectTitle": "Spice Processing Expansion",
+      "location": "Bekoji",
+      "sector": "Food Processing",
+      "fundingTargetETB": 500000,
+      "beneficiaries": 25,
+      "sdgs": [
+        "SDG 5",
+        "SDG 8",
+        "SDG 9"
+      ],
+      "milestones": [
+        "Purchase equipment",
+        "Install machinery",
+        "Train workers",
+        "Increase production"
+      ]
+    },
+    "reviewerDecision": {
+      "choice": null,
+      "notes": ""
+    },
+    "rank": 1
+  },
+  {
+    "id": "nahom-electronics",
+    "businessName": "Nahom Electronics",
+    "owner": "Nahom Girma",
+    "location": "Adama",
+    "sector": "Electronics",
+    "businessType": "PLC",
+    "yearsOperating": 3,
+    "status": "needsReview",
+    "progress": 100,
+    "employment": {
+      "total": 6,
+      "female": 2,
+      "male": 4,
+      "youth": 4
+    },
+    "financial": {
+      "annualSales2023": 310000,
+      "annualSales2024": 398000,
+      "revenueGrowth": "+28%",
+      "fundingRequested": 350000
+    },
+    "management": "Two co-founders split sales and repair operations; no formal org chart.",
+    "equipment": [
+      {
+        "item": "Soldering stations",
+        "qty": 4,
+        "estValueETB": 60000
+      }
+    ],
+    "fundingRequest": {
+      "amount": 350000,
+      "purpose": "Stock expansion and a second repair bench",
+      "expectedUse": "Inventory and small equipment"
+    },
+    "evidence": [
+      {
+        "label": "Business Name",
+        "value": "Nahom Electronics",
+        "status": "verified",
+        "source": "Business Licence"
+      },
+      {
+        "label": "Employees",
+        "value": "6",
+        "status": "extracted",
+        "source": "Voice Note"
+      },
+      {
+        "label": "Machinery Count",
+        "value": "4 soldering stations",
+        "status": "needsConfirmation",
+        "source": "Voice Note"
+      }
+    ],
+    "eligibility": {
+      "status": "eligible",
+      "checks": [
+        {
+          "label": "Valid business licence",
+          "passed": true
+        },
+        {
+          "label": "Meets operating requirements",
+          "passed": true
+        },
+        {
+          "label": "Funding purpose acceptable",
+          "passed": true
+        },
+        {
+          "label": "Required information available",
+          "passed": true
+        }
+      ]
+    },
+    "scoring": [
+      {
+        "key": "viability",
+        "label": "Business Viability",
+        "score": 18,
+        "max": 20,
+        "reason": "Steady three-year growth in a competitive repair market.",
+        "evidence": [
+          "Sales history"
+        ]
+      },
+      {
+        "key": "jobs",
+        "label": "Job Creation",
+        "score": 14,
+        "max": 15,
+        "reason": "6 employees, 4 of them youth.",
+        "evidence": [
+          "Voice transcript"
+        ]
+      },
+      {
+        "key": "management",
+        "label": "Management",
+        "score": 12,
+        "max": 15,
+        "reason": "No documented management structure between the two co-founders.",
+        "evidence": [
+          "Voice transcript"
+        ]
+      },
+      {
+        "key": "impact",
+        "label": "Impact",
+        "score": 18,
+        "max": 20,
+        "reason": "Expansion increases repair capacity in an underserved area.",
+        "evidence": [
+          "Business photo"
+        ]
+      },
+      {
+        "key": "financial",
+        "label": "Financial Readiness",
+        "score": 25,
+        "max": 30,
+        "reason": "Healthy margins; ownership of machinery not yet verified.",
+        "evidence": [
+          "Voice transcript"
+        ]
+      }
+    ],
+    "finalScore": 87,
+    "contradictions": [],
+    "missing": [
+      {
+        "id": "m1",
+        "label": "Machinery ownership proof",
+        "requiredFrom": "Applicant"
+      }
+    ],
+    "siteVisitQuestions": [
+      "Can you verify ownership of the listed soldering stations?",
+      "How is management responsibility split between the two founders?"
+    ],
+    "recommendation": {
+      "status": "Recommended",
+      "summary": "Solid growth and job creation profile. One item of machinery ownership needs verification before disbursement."
+    },
+    "declarations": [
+      {
+        "id": "d1",
+        "title": "Accuracy of information",
+        "text": "I confirm the information I provided is accurate to the best of my knowledge.",
+        "explained": true,
+        "accepted": true
+      },
+      {
+        "id": "d2",
+        "title": "Use of funds",
+        "text": "I agree to use any funding received only for the stated business purpose.",
+        "explained": true,
+        "accepted": true
+      },
+      {
+        "id": "d3",
+        "title": "Site visit consent",
+        "text": "I agree to a site visit by the funding organization for verification.",
+        "explained": true,
+        "accepted": true
+      }
+    ],
+    "proposal": {
+      "projectTitle": "Electronics Repair & Retail Expansion",
+      "location": "Adama",
+      "sector": "Electronics",
+      "fundingTargetETB": 350000,
+      "beneficiaries": 12,
+      "sdgs": [
+        "SDG 8",
+        "SDG 9"
+      ],
+      "milestones": [
+        "Purchase inventory",
+        "Add repair bench",
+        "Hire apprentice",
+        "Open extended hours"
+      ]
+    },
+    "reviewerDecision": {
+      "choice": null,
+      "notes": ""
+    },
+    "rank": 2
+  },
+  {
+    "id": "hiwot-training",
+    "businessName": "Hiwot Training Center",
+    "owner": "Hiwot Assefa",
+    "location": "Hawassa",
+    "sector": "Training",
+    "businessType": "Sole Proprietorship",
+    "yearsOperating": 2,
+    "status": "needsReview",
+    "progress": 100,
+    "employment": {
+      "total": 5,
+      "female": 4,
+      "male": 1,
+      "youth": 2
+    },
+    "financial": {
+      "annualSales2023": 150000,
+      "annualSales2024": null,
+      "revenueGrowth": "Not established",
+      "fundingRequested": 220000
+    },
+    "management": "Owner manages curriculum; one assistant handles enrollment.",
+    "equipment": [
+      {
+        "item": "Laptops",
+        "qty": 10,
+        "estValueETB": 250000
+      }
+    ],
+    "fundingRequest": {
+      "amount": 220000,
+      "purpose": "Expand classroom capacity and add vocational equipment",
+      "expectedUse": "Classroom renovation and equipment"
+    },
+    "evidence": [
+      {
+        "label": "Business Name",
+        "value": "Hiwot Training Center",
+        "status": "verified",
+        "source": "Business Licence"
+      },
+      {
+        "label": "2024 Sales",
+        "value": "Not provided",
+        "status": "missing",
+        "source": "—"
+      },
+      {
+        "label": "Beneficiaries",
+        "value": "Unclear",
+        "status": "needsConfirmation",
+        "source": "Voice Note"
+      }
+    ],
+    "eligibility": {
+      "status": "eligible",
+      "checks": [
+        {
+          "label": "Valid business licence",
+          "passed": true
+        },
+        {
+          "label": "Meets operating requirements",
+          "passed": true
+        },
+        {
+          "label": "Funding purpose acceptable",
+          "passed": true
+        },
+        {
+          "label": "Required information available",
+          "passed": true
+        }
+      ]
+    },
+    "scoring": [
+      {
+        "key": "viability",
+        "label": "Business Viability",
+        "score": 16,
+        "max": 20,
+        "reason": "Two years of operation; revenue trend cannot be confirmed without 2024 sales.",
+        "evidence": [
+          "Voice transcript"
+        ]
+      },
+      {
+        "key": "jobs",
+        "label": "Job Creation",
+        "score": 13,
+        "max": 15,
+        "reason": "5 employees, 4 of them women.",
+        "evidence": [
+          "Voice transcript"
+        ]
+      },
+      {
+        "key": "management",
+        "label": "Management",
+        "score": 12,
+        "max": 15,
+        "reason": "Small but clear division of responsibilities.",
+        "evidence": [
+          "Voice transcript"
+        ]
+      },
+      {
+        "key": "impact",
+        "label": "Impact",
+        "score": 17,
+        "max": 20,
+        "reason": "Vocational training expands access for young jobseekers, exact beneficiary count unclear.",
+        "evidence": [
+          "Voice transcript"
+        ]
+      },
+      {
+        "key": "financial",
+        "label": "Financial Readiness",
+        "score": 24,
+        "max": 30,
+        "reason": "2024 sales figures are missing, capping the financial score.",
+        "evidence": [
+          "Voice transcript"
+        ]
+      }
+    ],
+    "finalScore": 82,
+    "contradictions": [],
+    "missing": [
+      {
+        "id": "m1",
+        "label": "2024 sales",
+        "requiredFrom": "Applicant"
+      },
+      {
+        "id": "m2",
+        "label": "Exact beneficiary count",
+        "requiredFrom": "Applicant"
+      }
+    ],
+    "siteVisitQuestions": [
+      "Can you provide evidence for 2024 sales?",
+      "How many students have completed training so far?"
+    ],
+    "recommendation": {
+      "status": "Recommended",
+      "summary": "Strong social impact profile with a majority-women workforce. Missing 2024 financials should be confirmed before final scoring."
+    },
+    "declarations": [
+      {
+        "id": "d1",
+        "title": "Accuracy of information",
+        "text": "I confirm the information I provided is accurate to the best of my knowledge.",
+        "explained": true,
+        "accepted": true
+      },
+      {
+        "id": "d2",
+        "title": "Use of funds",
+        "text": "I agree to use any funding received only for the stated business purpose.",
+        "explained": true,
+        "accepted": true
+      },
+      {
+        "id": "d3",
+        "title": "Site visit consent",
+        "text": "I agree to a site visit by the funding organization for verification.",
+        "explained": true,
+        "accepted": false
+      }
+    ],
+    "proposal": {
+      "projectTitle": "Vocational Classroom Expansion",
+      "location": "Hawassa",
+      "sector": "Training",
+      "fundingTargetETB": 220000,
+      "beneficiaries": 60,
+      "sdgs": [
+        "SDG 4",
+        "SDG 5",
+        "SDG 8"
+      ],
+      "milestones": [
+        "Renovate classroom",
+        "Purchase equipment",
+        "Enroll new cohort",
+        "Track job placement"
+      ]
+    },
+    "reviewerDecision": {
+      "choice": null,
+      "notes": ""
+    },
+    "rank": 3
+  },
+  {
+    "id": "tigist-leather",
+    "businessName": "Tigist Leatherworks",
+    "owner": "Tigist Alemu",
+    "location": "Mekelle",
+    "sector": "Manufacturing",
+    "businessType": "Sole Proprietorship",
+    "yearsOperating": 1,
+    "status": "draft",
+    "progress": 60,
+    "employment": {
+      "total": 3,
+      "female": 3,
+      "male": 0,
+      "youth": 3
+    },
+    "financial": {
+      "annualSales2023": 0,
+      "annualSales2024": 95000,
+      "revenueGrowth": "New business",
+      "fundingRequested": 120000
+    },
+    "management": "Single owner-operator.",
+    "equipment": [
+      {
+        "item": "Leather cutting table",
+        "qty": 1,
+        "estValueETB": 20000
+      }
+    ],
+    "fundingRequest": {
+      "amount": 120000,
+      "purpose": "Buy tanning materials and a second work table",
+      "expectedUse": "Raw materials and equipment"
+    },
+    "evidence": [
+      {
+        "label": "Business Name",
+        "value": "Tigist Leatherworks",
+        "status": "extracted",
+        "source": "Voice Note"
+      },
+      {
+        "label": "Licence",
+        "value": "Not uploaded",
+        "status": "missing",
+        "source": "—"
+      }
+    ],
+    "eligibility": {
+      "status": "provisionallyEligible",
+      "checks": [
+        {
+          "label": "Valid business licence",
+          "passed": false
+        },
+        {
+          "label": "Meets operating requirements",
+          "passed": true
+        },
+        {
+          "label": "Funding purpose acceptable",
+          "passed": true
+        },
+        {
+          "label": "Required information available",
+          "passed": false
+        }
+      ]
+    },
+    "scoring": [
+      {
+        "key": "viability",
+        "label": "Business Viability",
+        "score": 10,
+        "max": 20,
+        "reason": "Business is under one year old; limited operating history.",
+        "evidence": [
+          "Voice transcript"
+        ]
+      },
+      {
+        "key": "jobs",
+        "label": "Job Creation",
+        "score": 9,
+        "max": 15,
+        "reason": "3 employees, all women.",
+        "evidence": [
+          "Voice transcript"
+        ]
+      },
+      {
+        "key": "management",
+        "label": "Management",
+        "score": 9,
+        "max": 15,
+        "reason": "Single owner-operator with no other staff in management.",
+        "evidence": [
+          "Voice transcript"
+        ]
+      },
+      {
+        "key": "impact",
+        "label": "Impact",
+        "score": 12,
+        "max": 20,
+        "reason": "Early-stage impact; beneficiary count not yet established.",
+        "evidence": [
+          "Voice transcript"
+        ]
+      },
+      {
+        "key": "financial",
+        "label": "Financial Readiness",
+        "score": 15,
+        "max": 30,
+        "reason": "No licence on file and limited financial history.",
+        "evidence": [
+          "Voice transcript"
+        ]
+      }
+    ],
+    "finalScore": 55,
+    "contradictions": [],
+    "missing": [
+      {
+        "id": "m1",
+        "label": "Business licence",
+        "requiredFrom": "Applicant"
+      },
+      {
+        "id": "m2",
+        "label": "2023 sales figures",
+        "requiredFrom": "Applicant"
+      }
+    ],
+    "siteVisitQuestions": [
+      "Can you provide your business licence?",
+      "What were your total sales before 2024?"
+    ],
+    "recommendation": {
+      "status": "Needs Review",
+      "summary": "Missing business licence prevents a full eligibility determination. Draft application, not yet submitted."
+    },
+    "declarations": [
+      {
+        "id": "d1",
+        "title": "Accuracy of information",
+        "text": "I confirm the information I provided is accurate to the best of my knowledge.",
+        "explained": true,
+        "accepted": false
+      },
+      {
+        "id": "d2",
+        "title": "Use of funds",
+        "text": "I agree to use any funding received only for the stated business purpose.",
+        "explained": false,
+        "accepted": false
+      },
+      {
+        "id": "d3",
+        "title": "Site visit consent",
+        "text": "I agree to a site visit by the funding organization for verification.",
+        "explained": false,
+        "accepted": false
+      }
+    ],
+    "proposal": {
+      "projectTitle": "Leatherworks Studio Growth",
+      "location": "Mekelle",
+      "sector": "Manufacturing",
+      "fundingTargetETB": 120000,
+      "beneficiaries": 8,
+      "sdgs": [
+        "SDG 5",
+        "SDG 8"
+      ],
+      "milestones": [
+        "Buy raw materials",
+        "Add second work table",
+        "Train one apprentice"
+      ]
+    },
+    "reviewerDecision": {
+      "choice": null,
+      "notes": ""
+    }
+  },
+  {
+    "id": "dawit-agro",
+    "businessName": "Dawit Agro Supplies",
+    "owner": "Dawit Tesfaye",
+    "location": "Bahir Dar",
+    "sector": "Agriculture",
+    "businessType": "PLC",
+    "yearsOperating": 6,
+    "status": "needsReview",
+    "progress": 100,
+    "employment": {
+      "total": 11,
+      "female": 3,
+      "male": 8,
+      "youth": 2
+    },
+    "financial": {
+      "annualSales2023": 820000,
+      "annualSales2024": 790000,
+      "revenueGrowth": "-4%",
+      "fundingRequested": 600000
+    },
+    "management": "Owner plus a hired operations manager and two team leads.",
+    "equipment": [
+      {
+        "item": "Storage silos",
+        "qty": 3,
+        "estValueETB": 300000
+      }
+    ],
+    "fundingRequest": {
+      "amount": 600000,
+      "purpose": "Cold storage expansion",
+      "expectedUse": "Construction and equipment"
+    },
+    "evidence": [
+      {
+        "label": "Business Name",
+        "value": "Dawit Agro Supplies",
+        "status": "verified",
+        "source": "Business Licence"
+      },
+      {
+        "label": "Ownership Split",
+        "value": "60% / 30% / 20%",
+        "status": "contradiction",
+        "source": "Application form",
+        "contradictionDetail": {
+          "otherSource": "Voice Note",
+          "otherValue": "Sums to 110%, not 100%",
+          "action": "Clarify exact ownership percentages with applicant."
+        }
+      },
+      {
+        "label": "Funding Purpose",
+        "value": "Cold storage expansion",
+        "status": "needsConfirmation",
+        "source": "Voice Note"
+      }
+    ],
+    "eligibility": {
+      "status": "notEligible",
+      "checks": [
+        {
+          "label": "Valid business licence",
+          "passed": true
+        },
+        {
+          "label": "Meets operating requirements",
+          "passed": true
+        },
+        {
+          "label": "Funding purpose acceptable",
+          "passed": false
+        },
+        {
+          "label": "Required information available",
+          "passed": true
+        }
+      ],
+      "exclusionFactor": {
+        "reason": "Requested funding purpose (large-scale construction) falls outside the eligible use-of-funds categories for this grant round.",
+        "evidence": "Voice transcript, funding request field"
+      }
+    },
+    "scoring": [
+      {
+        "key": "viability",
+        "label": "Business Viability",
+        "score": 15,
+        "max": 20,
+        "reason": "Six years of operation but revenue declined slightly year over year.",
+        "evidence": [
+          "Sales history"
+        ]
+      },
+      {
+        "key": "jobs",
+        "label": "Job Creation",
+        "score": 11,
+        "max": 15,
+        "reason": "11 employees; low share of women and youth relative to other applicants.",
+        "evidence": [
+          "Voice transcript"
+        ]
+      },
+      {
+        "key": "management",
+        "label": "Management",
+        "score": 13,
+        "max": 15,
+        "reason": "Structured management with dedicated team leads.",
+        "evidence": [
+          "Voice transcript"
+        ]
+      },
+      {
+        "key": "impact",
+        "label": "Impact",
+        "score": 10,
+        "max": 20,
+        "reason": "Impact reduced pending clarification of the excluded funding purpose.",
+        "evidence": [
+          "Voice transcript"
+        ]
+      },
+      {
+        "key": "financial",
+        "label": "Financial Readiness",
+        "score": 20,
+        "max": 30,
+        "reason": "Revenue declined 4% year over year; ownership split does not reconcile.",
+        "evidence": [
+          "Sales history"
+        ]
+      }
+    ],
+    "finalScore": 69,
+    "contradictions": [
+      {
+        "id": "c1",
+        "title": "Ownership percentages",
+        "fieldA": {
+          "label": "Application form",
+          "value": "60% / 30% / 20%"
+        },
+        "fieldB": {
+          "label": "Voice Note",
+          "value": "Sums to 110%, not 100%"
+        },
+        "severity": "High",
+        "recommendedAction": "Clarify exact ownership percentages with applicant before proceeding."
+      }
+    ],
+    "missing": [],
+    "siteVisitQuestions": [
+      "Can you clarify the exact ownership percentages of the business?",
+      "Is there an alternative funding purpose within the eligible categories?"
+    ],
+    "recommendation": {
+      "status": "Ineligible",
+      "summary": "The requested funding purpose falls outside eligible categories for this round, and ownership percentages do not reconcile across sources."
+    },
+    "declarations": [
+      {
+        "id": "d1",
+        "title": "Accuracy of information",
+        "text": "I confirm the information I provided is accurate to the best of my knowledge.",
+        "explained": true,
+        "accepted": true
+      },
+      {
+        "id": "d2",
+        "title": "Use of funds",
+        "text": "I agree to use any funding received only for the stated business purpose.",
+        "explained": true,
+        "accepted": true
+      },
+      {
+        "id": "d3",
+        "title": "Site visit consent",
+        "text": "I agree to a site visit by the funding organization for verification.",
+        "explained": true,
+        "accepted": true
+      }
+    ],
+    "proposal": {
+      "projectTitle": "Cold Storage Expansion",
+      "location": "Bahir Dar",
+      "sector": "Agriculture",
+      "fundingTargetETB": 600000,
+      "beneficiaries": 40,
+      "sdgs": [
+        "SDG 2",
+        "SDG 8"
+      ],
+      "milestones": [
+        "Site preparation",
+        "Construction",
+        "Install cooling units",
+        "Onboard suppliers"
+      ]
+    },
+    "reviewerDecision": {
+      "choice": null,
+      "notes": ""
+    }
+  }
+]
