@@ -18,17 +18,6 @@ The system supports English, Amharic (አማርኛ), and Afaan Oromo (Afaan Orom
 
 Project Structure
 
-.
-├── main.py
-├── helper/
-│   ├── process_form.py
-│   ├── populate_form.py
-│   ├── rank_applications.py
-│   └── ...
-├── uploads/
-├── requirements.txt
-└── README.md
-
 main.py
 
 main.py is the entry point and API layer of the backend. It exposes the Flask endpoints and connects the different AI processing modules.
@@ -45,6 +34,7 @@ POST	/applications	Save an application
 GET	/applications/<id>	Retrieve an application
 GET	/ranked_applications	Rank saved applications
 GET	/ranked_applications/<id>	Retrieve a ranked application
+
 AI Pipeline
 Speech-to-Text: Converts business owners' spoken descriptions into text.
 OCR: Extracts information from business licenses and documents.
@@ -52,7 +42,8 @@ Computer Vision: Analyzes workshop/business photos.
 Translation: Supports English, Amharic, and Afaan Oromo.
 Application Generation: Combines the extracted information into a structured grant application.
 Validation: Uses Pydantic to maintain a consistent application schema.
-Ranking: Scores and prioritizes completed applications.
+Agentic ranking: Scores and prioritizes completed applications.
+
 Tech Stack
 Python
 Flask
