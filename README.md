@@ -6,6 +6,7 @@ An AI-powered grant application system that helps small business owners create c
 An AI-powered platform that helps grant providers review, evaluate, and prioritize applications at scale. It automatically assesses applications against predefined eligibility requirements and scoring criteria, verifies consistency across business licenses, application information, and photos, identifies missing information and potential risks, and generates transparent scores, recommendations, and rankings for human reviewers.
 
 
-## Branch
+#### branches
 backend
+
 frontend
