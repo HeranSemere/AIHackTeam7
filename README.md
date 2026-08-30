@@ -16,35 +16,78 @@ Workshop Photo ──────► Vision ──────────┘
 
 The system supports **English, Amharic (አማርኛ), and Afaan Oromo (Afaan Oromoo)**.
 
-Audio (English / Amharic / Afaan Oromo)
-                    │
-                    ▼
-             Speech-to-Text
-                    │
-                    │
-Business License ──► OCR
-                    │
-                    │
-Workshop Photo ────► GPT-5.6 Luna
-                    │
-                    ▼
-          Information Extraction
-                    │
-                    ▼
-       Pydantic Structured Fields
-                    │
-                    ▼
-       Normalize / Translate to English
-                    │
-                    ▼
-         Grant Application Form
-                    │
-                    ▼
-      Translate to Preferred Language
-          (English / Amharic / Oromo)
-                    │
-                    ▼
-              Application JSON
+                         ┌─────────────────────────────┐
+                         │        USER INPUT           │
+                         └──────────────┬──────────────┘
+                                        │
+             ┌──────────────────────────┼──────────────────────────┐
+             │                          │                          │
+             ▼                          ▼                          ▼
+    ┌─────────────────┐        ┌─────────────────┐        ┌─────────────────┐
+    │      AUDIO      │        │ BUSINESS LICENSE│        │ WORKSHOP PHOTO  │
+    │                 │        │                 │        │                 │
+    │ English         │        │                 │        │                 │
+    │ Amharic         │        │                 │        │                 │
+    │ Afaan Oromo     │        │                 │        │                 │
+    └────────┬────────┘        └────────┬────────┘        └────────┬────────┘
+             │                          │                          │
+             ▼                          ▼                          ▼
+    ┌─────────────────┐        ┌─────────────────┐        ┌─────────────────┐
+    │  SPEECH-TO-TEXT │        │       OCR       │        │     GPT-5.6      │
+    │                 │        │                 │        │      LUNA       │
+    │ Whisper /       │        │ Document        │        │ Vision          │
+    │ appropriate ASR │        │ extraction      │        │                 │
+    └────────┬────────┘        └────────┬────────┘        └────────┬────────┘
+             │                          │                          │
+             └──────────────────────────┼──────────────────────────┘
+                                        │
+                                        ▼
+                         ┌─────────────────────────────┐
+                         │       GPT-5.6 LUNA          │
+                         │                             │
+                         │  Information Extraction    │
+                         │                             │
+                         │  • Understand context      │
+                         │  • Combine all inputs       │
+                         │  • Extract grant fields     │
+                         └──────────────┬──────────────┘
+                                        │
+                                        ▼
+                         ┌─────────────────────────────┐
+                         │   PYDANTIC STRUCTURED DATA  │
+                         │                             │
+                         │   Validated Grant Fields    │
+                         └──────────────┬──────────────┘
+                                        │
+                                        ▼
+                         ┌─────────────────────────────┐
+                         │   NORMALIZE & TRANSLATE     │
+                         │                             │
+                         │   → English                 │
+                         │   → Standardized fields     │
+                         └──────────────┬──────────────┘
+                                        │
+                                        ▼
+                         ┌─────────────────────────────┐
+                         │     GRANT APPLICATION      │
+                         │            FORM             │
+                         │                             │
+                         │   AI-populated + editable   │
+                         └──────────────┬──────────────┘
+                                        │
+                                        ▼
+                         ┌─────────────────────────────┐
+                         │    TRANSLATE FOR USER       │
+                         │                             │
+                         │ English / Amharic / Oromo  │
+                         └──────────────┬──────────────┘
+                                        │
+                                        ▼
+                         ┌─────────────────────────────┐
+                         │      FINAL APPLICATION      │
+                         │                             │
+                         │      Application JSON       │
+                         └─────────────────────────────┘
 
 ## Project Structure
 
