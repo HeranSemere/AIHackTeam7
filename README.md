@@ -107,16 +107,6 @@ Other endpoints handle saving and retrieving applications and ranking submitted 
 | `GET` | `/ranked_applications` | Rank saved applications |
 | `GET` | `/ranked_applications/<id>` | Retrieve a ranked application |
 
-## AI Pipeline
-
-- **Speech-to-Text:** Converts business owners' spoken descriptions into text.
-- **OCR:** Extracts information from business licenses and documents.
-- **Computer Vision:** Analyzes workshop/business photos.
-- **Translation:** Supports English, Amharic, and Afaan Oromo.
-- **Application Generation:** Combines extracted information into a structured grant application.
-- **Validation:** Uses Pydantic to maintain a consistent application schema.
-- **Agentic Ranking:** Scores and prioritizes completed applications.
-
 ## Tech Stack
 
 - Python
@@ -127,3 +117,73 @@ Other endpoints handle saving and retrieving applications and ranking submitted 
 - OCRSpace
 - Computer Vision
 - Gemini
+
+## AI Pipeline
+
+- **Speech-to-Text:** Converts business owners' spoken descriptions into text.
+- **OCR:** Extracts information from business licenses and documents.
+- **Computer Vision:** Analyzes workshop/business photos.
+- **Translation:** Supports English, Amharic, and Afaan Oromo.
+- **Application Generation:** Combines extracted information into a structured grant application.
+- **Validation:** Uses Pydantic to maintain a consistent application schema.
+- **Agentic Ranking:** Scores and prioritizes completed applications.
+
+### Agentic Ranking: Grant Provider Side
+
+- **Eligibility Screening:** Checks applications against configurable grant requirements.
+- **AI Evaluation:** Scores applications across predefined criteria.
+- **Evidence Assessment:** Compares information across documents, application data, and photos.
+- **Risk Assessment:** Identifies missing information, inconsistencies, and potential evidence problems.
+- **Deterministic Scoring:** Calculates the final score from the weighted evaluation criteria.
+- **Recommendation:** Classifies applications as priority, human review, low priority, or ineligible.
+- **Ranking:** Sorts eligible applications by their final score to help reviewers prioritize their work.
+
+## Ranking System
+
+Each application is evaluated against a **100-point scoring framework**:
+
+| Criterion | Maximum |
+|---|---:|
+| Problem / Need | 15 |
+| Funding Use | 15 |
+| Impact | 20 |
+| Beneficiaries | 10 |
+| Feasibility | 15 |
+| Business Evidence | 15 |
+| SDG Alignment | 5 |
+| Completeness | 5 |
+| **Total** | **100** |
+
+The AI evaluator provides the score and supporting evidence for each criterion, while the backend **calculates the final score independently**.
+
+This prevents the AI from accidentally miscalculating the total.
+
+Applications are then classified according to both their score and evidence quality:
+
+```text
+                    APPLICATION
+                         │
+                         ▼
+                 Eligibility Check
+                         │
+              ┌──────────┴──────────┐
+              │                     │
+          INELIGIBLE             ELIGIBLE
+              │                     │
+              ▼                     ▼
+         Ineligible          AI Evaluation
+                                    │
+                                    ▼
+                              Evidence / Risk
+                                    │
+                                    ▼
+                              Final Score
+                                  / 100
+                                    │
+                    ┌───────────────┼───────────────┐
+                    ▼               ▼               ▼
+                 ≥ 80            60–79            < 60
+                    │               │               │
+                    ▼               ▼               ▼
+                PRIORITY      HUMAN REVIEW     LOW PRIORITY
+
