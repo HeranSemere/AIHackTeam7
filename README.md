@@ -27,7 +27,7 @@ The system supports **English, Amharic (አማርኛ), and Afaan Oromo (Afaan Or
              ▼                          ▼                          ▼
     ┌─────────────────┐        ┌─────────────────┐        ┌─────────────────┐
     │  SPEECH-TO-TEXT │        │       OCR       │        │      Vision     │
-    │                 │        │                 │        │   **Agent**:    │
+    │                 │        │                 │        │   **Agent:      │
     │ ElevenLabs /    │        │     OCRSpace    │        │  GPT-5.6-LUNA   │
     │ AssemblyAI/     │        │                 │        │                 │
     │ appropriate ASR │        │                 │        │                 │
@@ -38,7 +38,7 @@ The system supports **English, Amharic (አማርኛ), and Afaan Oromo (Afaan Or
                                         ▼
                          ┌─────────────────────────────┐
                          │   NORMALIZE & TRANSLATE     │
-                         │   **Agent**: Gemini         │
+                         │   **Agent: Gemini           │
                          │                             │
                          │   → English                 │
                          │   → Standardized fields     │
@@ -48,7 +48,7 @@ The system supports **English, Amharic (አማርኛ), and Afaan Oromo (Afaan Or
                          ┌─────────────────────────────┐
                          │   Information Extraction    │
                          │                             │
-                         │   **Agent**: GPT-5.6 LUNA + │
+                         │   **Agent: GPT-5.6 LUNA +   │
                          │        Pydantic fields      │
                          │                             │
                          │  • Understand context       │
@@ -56,7 +56,7 @@ The system supports **English, Amharic (አማርኛ), and Afaan Oromo (Afaan Or
                          │  • Extract grant fields     │
                          └──────────────┬──────────────┘
                                         │
-                                        ▼ language  
+                                        ▼   
                          ┌─────────────────────────────┐
                          │   PYDANTIC STRUCTURED DATA  │
                          │                             │
@@ -67,7 +67,7 @@ The system supports **English, Amharic (አማርኛ), and Afaan Oromo (Afaan Or
                                         ▼
                          ┌─────────────────────────────┐
                          │    TRANSLATE FOR USER       │
-                         │  **Agent**:  GPT-5-mini     │
+                         │  **Agent:  GPT-5-mini       │
                          │ English / Amharic / Oromo   │
                          └──────────────┬──────────────┘
                                         │
