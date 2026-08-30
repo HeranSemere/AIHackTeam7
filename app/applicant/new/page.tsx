@@ -10,7 +10,7 @@ type Step = 1 | 2 | 3;
 
 const VOICE_LANGS = [
   { code: "en", label: "English" },
-  { code: "am", label: "አማርኛ" },
+  { code: "amh", label: "አማርኛ" },
   { code: "om", label: "Afaan Oromoo" },
 ];
 
@@ -66,14 +66,21 @@ export default function NewApplication() {
     try {
       const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
       streamRef.current = stream;
-      const mimeType = MediaRecorder.isTypeSupported("audio/webm") ? "audio/webm" : "";
-      const recorder = new MediaRecorder(stream, mimeType ? { mimeType } : undefined);
+      const mimeType = MediaRecorder.isTypeSupported("audio/webm")
+        ? "audio/webm"
+        : "";
+      const recorder = new MediaRecorder(
+        stream,
+        mimeType ? { mimeType } : undefined,
+      );
       chunksRef.current = [];
       recorder.ondataavailable = (e) => {
         if (e.data.size > 0) chunksRef.current.push(e.data);
       };
       recorder.onstop = () => {
-        const blob = new Blob(chunksRef.current, { type: mimeType || "audio/webm" });
+        const blob = new Blob(chunksRef.current, {
+          type: mimeType || "audio/webm",
+        });
         setVoiceBlob(blob);
         streamRef.current?.getTracks().forEach((tr) => tr.stop());
       };
@@ -81,7 +88,9 @@ export default function NewApplication() {
       mediaRecorderRef.current = recorder;
       setRecording(true);
     } catch {
-      setMicError("Microphone access was denied or is unavailable. You can upload a voice note instead.");
+      setMicError(
+        "Microphone access was denied or is unavailable. You can upload a voice note instead.",
+      );
     }
   }
 
@@ -122,10 +131,38 @@ export default function NewApplication() {
     }, 550);
 
     try {
-      const application = await analyzeApplication({ voiceBlob, voiceLang, licenceFile, photoFile });
+      // const application = await analyzeApplication({
+      //   voiceBlob,
+      //   voiceLang,
+      //   licenceFile,
+      //   photoFile,
+      // });
+      // clearInterval(ticker);
+      // setChecks(PROCESSING_STEPS.length);
+      // setTimeout(
+      //   () => router.push(`/applicant/${application.id}?generated=1`),
+      //   500,
+      // );
+
+      const application = await analyzeApplication({
+        voiceBlob,
+        voiceLang,
+        licenceFile,
+        photoFile,
+      });
+
       clearInterval(ticker);
       setChecks(PROCESSING_STEPS.length);
-      setTimeout(() => router.push(`/applicant/${application.id}?generated=1`), 500);
+
+      // Pass the complete response to the next page
+      sessionStorage.setItem(
+        "generatedApplication",
+        JSON.stringify(application),
+      );
+
+      setTimeout(() => {
+        router.push("/applicant/generated");
+      }, 500);
     } catch (err) {
       clearInterval(ticker);
       setAnalyzing(false);
@@ -138,10 +175,19 @@ export default function NewApplication() {
   if (analyzing) {
     return (
       <div className="mx-auto max-w-md py-10">
-        <p className="text-center text-sm font-semibold uppercase tracking-wide text-gold-dark">{t.applicant.processingTitle}</p>
-        <div className="mx-auto my-8 flex h-20 items-end justify-center gap-1.5" aria-hidden>
+        <p className="text-center text-sm font-semibold uppercase tracking-wide text-gold-dark">
+          {t.applicant.processingTitle}
+        </p>
+        <div
+          className="mx-auto my-8 flex h-20 items-end justify-center gap-1.5"
+          aria-hidden
+        >
           {[0.5, 0.8, 1, 0.4, 0.7, 0.9, 0.35].map((d, i) => (
-            <span key={i} className="wave-bar w-2 rounded-full bg-gold" style={{ height: `${d * 72}px`, animationDelay: `${i * 0.09}s` }} />
+            <span
+              key={i}
+              className="wave-bar w-2 rounded-full bg-gold"
+              style={{ height: `${d * 72}px`, animationDelay: `${i * 0.09}s` }}
+            />
           ))}
         </div>
         <ul className="flex flex-col gap-3 rounded-xl2 border border-coffee/10 bg-paper p-6 shadow-card">
@@ -149,12 +195,18 @@ export default function NewApplication() {
             <li key={s} className="flex items-center gap-3 text-sm">
               <span
                 className={`flex h-5 w-5 shrink-0 items-center justify-center rounded-full text-xs font-bold ${
-                  i < checks ? "bg-forest text-white" : i === checks ? "border-2 border-gold text-gold-dark" : "border border-coffee/20 text-transparent"
+                  i < checks
+                    ? "bg-forest text-white"
+                    : i === checks
+                      ? "border-2 border-gold text-gold-dark"
+                      : "border border-coffee/20 text-transparent"
                 }`}
               >
                 {i < checks ? "✓" : i === checks ? "●" : "○"}
               </span>
-              <span className={i <= checks ? "text-ink" : "text-ink/40"}>{s}</span>
+              <span className={i <= checks ? "text-ink" : "text-ink/40"}>
+                {s}
+              </span>
             </li>
           ))}
         </ul>
@@ -174,13 +226,18 @@ export default function NewApplication() {
     <div>
       <div className="mb-8 flex items-center gap-2" aria-label="progress">
         {[1, 2, 3].map((s) => (
-          <div key={s} className={`h-1.5 flex-1 rounded-full ${s <= step ? "bg-gold" : "bg-coffee/10"}`} />
+          <div
+            key={s}
+            className={`h-1.5 flex-1 rounded-full ${s <= step ? "bg-gold" : "bg-coffee/10"}`}
+          />
         ))}
       </div>
 
       {step === 1 && (
         <section>
-          <h1 className="font-display text-2xl font-semibold text-ink">{t.applicant.step1}</h1>
+          <h1 className="font-display text-2xl font-semibold text-ink">
+            {t.applicant.step1}
+          </h1>
           <p className="mt-2 text-ink/60">{t.applicant.step1Sub}</p>
 
           <div className="mt-6 flex flex-wrap gap-2">
@@ -189,7 +246,9 @@ export default function NewApplication() {
                 key={l.code}
                 onClick={() => setVoiceLang(l.code as typeof locale)}
                 className={`rounded-full border px-4 py-1.5 text-sm font-medium transition ${
-                  voiceLang === l.code ? "border-gold bg-gold-light text-coffee" : "border-coffee/15 text-ink/60 hover:border-gold"
+                  voiceLang === l.code
+                    ? "border-gold bg-gold-light text-coffee"
+                    : "border-coffee/15 text-ink/60 hover:border-gold"
                 }`}
               >
                 {l.label}
@@ -201,28 +260,58 @@ export default function NewApplication() {
             {recording ? (
               <div className="flex h-16 items-end gap-1.5" aria-hidden>
                 {[0.4, 0.8, 1, 0.5, 0.9, 0.3, 0.7].map((d, i) => (
-                  <span key={i} className="wave-bar w-2 rounded-full bg-clay" style={{ height: `${d * 64}px`, animationDelay: `${i * 0.08}s` }} />
+                  <span
+                    key={i}
+                    className="wave-bar w-2 rounded-full bg-clay"
+                    style={{
+                      height: `${d * 64}px`,
+                      animationDelay: `${i * 0.08}s`,
+                    }}
+                  />
                 ))}
               </div>
             ) : (
-              <div className={`flex h-16 w-16 items-center justify-center rounded-full text-2xl ${voiceBlob ? "bg-forest-light" : "bg-gold-light"}`}>
+              <div
+                className={`flex h-16 w-16 items-center justify-center rounded-full text-2xl ${voiceBlob ? "bg-forest-light" : "bg-gold-light"}`}
+              >
                 {voiceBlob ? "✓" : "🎙️"}
               </div>
             )}
 
             <button
-              onClick={() => (recording ? stopRecording() : voiceBlob ? setVoiceBlob(null) : startRecording())}
+              onClick={() =>
+                recording
+                  ? stopRecording()
+                  : voiceBlob
+                    ? setVoiceBlob(null)
+                    : startRecording()
+              }
               className="w-full rounded-full bg-coffee px-6 py-3.5 text-sm font-semibold text-white transition hover:bg-ink"
             >
-              {recording ? t.applicant.stopRecording : voiceBlob ? t.applicant.recordAgain : t.applicant.startRecording}
+              {recording
+                ? t.applicant.stopRecording
+                : voiceBlob
+                  ? t.applicant.recordAgain
+                  : t.applicant.startRecording}
             </button>
 
-            {micError && <p className="text-center text-sm text-clay">{micError}</p>}
+            {micError && (
+              <p className="text-center text-sm text-clay">{micError}</p>
+            )}
 
             {!recording && (
               <>
-                <input ref={voiceInputRef} type="file" accept="audio/*" className="hidden" onChange={onVoiceFilePicked} />
-                <button onClick={() => voiceInputRef.current?.click()} className="text-sm font-semibold text-gold-dark hover:underline">
+                <input
+                  ref={voiceInputRef}
+                  type="file"
+                  accept="audio/*"
+                  className="hidden"
+                  onChange={onVoiceFilePicked}
+                />
+                <button
+                  onClick={() => voiceInputRef.current?.click()}
+                  className="text-sm font-semibold text-gold-dark hover:underline"
+                >
                   {t.applicant.uploadVoice}
                 </button>
               </>
@@ -233,7 +322,9 @@ export default function NewApplication() {
 
       {step === 2 && (
         <section>
-          <h1 className="font-display text-2xl font-semibold text-ink">{t.applicant.step2}</h1>
+          <h1 className="font-display text-2xl font-semibold text-ink">
+            {t.applicant.step2}
+          </h1>
           <p className="mt-2 text-ink/60">{t.applicant.step2Sub}</p>
           <div className="mt-8 rounded-xl2 border border-coffee/10 bg-paper p-6 shadow-card">
             <input
@@ -247,7 +338,11 @@ export default function NewApplication() {
             {licencePreview ? (
               <div className="flex items-center gap-4">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={licencePreview} alt="Business licence preview" className="h-24 w-32 rounded-lg object-cover" />
+                <img
+                  src={licencePreview}
+                  alt="Business licence preview"
+                  className="h-24 w-32 rounded-lg object-cover"
+                />
                 <button
                   onClick={() => {
                     setLicenceFile(null);
@@ -273,7 +368,9 @@ export default function NewApplication() {
 
       {step === 3 && (
         <section>
-          <h1 className="font-display text-2xl font-semibold text-ink">{t.applicant.step3}</h1>
+          <h1 className="font-display text-2xl font-semibold text-ink">
+            {t.applicant.step3}
+          </h1>
           <p className="mt-2 text-ink/60">{t.applicant.step3Sub}</p>
           <div className="mt-8 rounded-xl2 border border-coffee/10 bg-paper p-6 shadow-card">
             <input
@@ -287,7 +384,11 @@ export default function NewApplication() {
             {photoPreview ? (
               <div className="flex items-center gap-4">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={photoPreview} alt="Business photo preview" className="h-24 w-32 rounded-lg object-cover" />
+                <img
+                  src={photoPreview}
+                  alt="Business photo preview"
+                  className="h-24 w-32 rounded-lg object-cover"
+                />
                 <button
                   onClick={() => {
                     setPhotoFile(null);
@@ -321,7 +422,7 @@ export default function NewApplication() {
 
         {step < 3 ? (
           <button
-            onClick={() => setStep((s) => ((s + 1) as Step))}
+            onClick={() => setStep((s) => (s + 1) as Step)}
             disabled={step === 1 ? !voiceBlob : !licenceFile}
             className="rounded-full bg-coffee px-6 py-3 text-sm font-semibold text-white transition hover:bg-ink disabled:opacity-40"
           >

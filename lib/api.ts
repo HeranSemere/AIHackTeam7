@@ -47,7 +47,10 @@ function authHeaders(): HeadersInit {
   return token ? { Authorization: `Bearer ${token}` } : {};
 }
 
-async function apiFetch<T>(path: string, options: RequestInit = {}): Promise<T> {
+async function apiFetch<T>(
+  path: string,
+  options: RequestInit = {},
+): Promise<T> {
   const isFormData = options.body instanceof FormData;
   const res = await fetch(`${apiBase()}${path}`, {
     ...options,
@@ -80,7 +83,28 @@ async function apiFetch<T>(path: string, options: RequestInit = {}): Promise<T> 
 
 export function fetchApplicantApplications(): Promise<Application[]> {
   if (!hasBackend()) return localData.list();
-  return apiFetch<Application[]>("/applicant/applications");
+  return apiFetch<Application[]>("/rank_application");
+}
+
+/**
+ * Sends the already-generated application to the backend.
+ *
+ * IMPORTANT:
+ * This does NOT send voice, licence, or photo files.
+ * It sends only the generated Application JSON.
+ */
+export function submitGeneratedApplication(
+  application: Application,
+): Promise<Application> {
+  if (!hasBackend()) {
+    // For local/test mode, keep the generated application available.
+    return Promise.resolve(application);
+  }
+
+  return apiFetch<Application>("/applications", {
+    method: "POST",
+    body: JSON.stringify(application),
+  });
 }
 
 export function fetchApplicantApplication(id: string): Promise<Application> {
@@ -104,34 +128,50 @@ export function analyzeApplication(input: {
   if (!hasBackend()) return localData.analyze();
 
   const form = new FormData();
-  form.append("voice", input.voiceBlob, "voice-note.webm");
-  form.append("voiceLang", input.voiceLang);
-  form.append("licence", input.licenceFile);
-  form.append("photo", input.photoFile);
+  form.append("audio", input.voiceBlob, "voice-note.webm");
+  form.append("lang", input.voiceLang);
+  form.append("business_license", input.licenceFile);
+  form.append("workshop_photo", input.photoFile);
 
-  return apiFetch<Application>("/applicant/applications/analyze", {
+  return apiFetch<Application>("/submit_business", {
     method: "POST",
     body: form,
   });
 }
 
-export function addMissingInfo(appId: string, fieldId: string, value: string): Promise<Application> {
+export function addMissingInfo(
+  appId: string,
+  fieldId: string,
+  value: string,
+): Promise<Application> {
   if (!hasBackend()) return localData.patchMissing(appId, fieldId, value);
-  return apiFetch<Application>(`/applicant/applications/${appId}/missing/${fieldId}`, {
-    method: "PATCH",
-    body: JSON.stringify({ value }),
-  });
+  return apiFetch<Application>(
+    `/applicant/applications/${appId}/missing/${fieldId}`,
+    {
+      method: "PATCH",
+      body: JSON.stringify({ value }),
+    },
+  );
 }
 
-export function acceptDeclaration(appId: string, declarationId: string): Promise<Application> {
+export function acceptDeclaration(
+  appId: string,
+  declarationId: string,
+): Promise<Application> {
   if (!hasBackend()) return localData.patchDeclaration(appId, declarationId);
-  return apiFetch<Application>(`/applicant/applications/${appId}/declarations/${declarationId}`, {
-    method: "PATCH",
-    body: JSON.stringify({ accepted: true }),
-  });
+  return apiFetch<Application>(
+    `/applicant/applications/${appId}/declarations/${declarationId}`,
+    {
+      method: "PATCH",
+      body: JSON.stringify({ accepted: true }),
+    },
+  );
 }
 
-export function updateProposal(appId: string, proposal: Partial<Application["proposal"]>): Promise<Application> {
+export function updateProposal(
+  appId: string,
+  proposal: Partial<Application["proposal"]>,
+): Promise<Application> {
   if (!hasBackend()) return localData.patchProposal(appId, proposal);
   return apiFetch<Application>(`/applicant/applications/${appId}/proposal`, {
     method: "PATCH",
@@ -152,18 +192,18 @@ export function submitApplication(appId: string): Promise<Application> {
 
 export function fetchReviewerApplications(): Promise<Application[]> {
   if (!hasBackend()) return localData.list();
-  return apiFetch<Application[]>("/reviewer/applications");
+  return apiFetch<Application[]>("/ranked_applications");
 }
 
 export function fetchReviewerApplication(id: string): Promise<Application> {
   if (!hasBackend()) return localData.get(id);
-  return apiFetch<Application>(`/reviewer/applications/${id}`);
+  return apiFetch<Application>(`/ranked_applications/${id}`);
 }
 
 export function saveReviewerDecision(
   appId: string,
   choice: "approve" | "moreInfo" | "reject",
-  notes: string
+  notes: string,
 ): Promise<Application> {
   if (!hasBackend()) return localData.saveDecision(appId, choice, notes);
   return apiFetch<Application>(`/reviewer/applications/${appId}/decision`, {
@@ -172,9 +212,14 @@ export function saveReviewerDecision(
   });
 }
 
-export function setShortlisted(appId: string, shortlisted: boolean): Promise<Application> {
+export function setShortlisted(
+  appId: string,
+  shortlisted: boolean,
+): Promise<Application> {
   if (!hasBackend()) return localData.setShortlisted(appId, shortlisted);
-  return apiFetch<Application>(`/reviewer/applications/${appId}/shortlist`, {
+  // return apiFetch<Application>(`/reviewer/applications/${appId}/shortlist`, {
+
+  return apiFetch<Application>(`/ranked_applications`, {
     method: "PATCH",
     body: JSON.stringify({ shortlisted }),
   });
@@ -182,7 +227,10 @@ export function setShortlisted(appId: string, shortlisted: boolean): Promise<App
 
 export function requestVerification(appId: string): Promise<void> {
   if (!hasBackend()) return localData.requestVerification();
-  return apiFetch<void>(`/reviewer/applications/${appId}/request-verification`, {
-    method: "POST",
-  });
+  return apiFetch<void>(
+    `/reviewer/applications/${appId}/request-verification`,
+    {
+      method: "POST",
+    },
+  );
 }

@@ -21,6 +21,7 @@ export default function ReviewerLayout({
       icon: "☰",
     },
     { href: "/reviewer/shortlist", label: t.reviewer.shortlist, icon: "★" },
+    { href: "/reviewer/Blockchain", label: t.reviewer.blockchain, icon: "★" },
   ];
 
   return (

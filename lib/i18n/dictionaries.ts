@@ -96,6 +96,7 @@ export const dictionaries = {
       averageScore: "Average Score",
       applications: "Applications",
       shortlist: "Approved",
+      blockchain: "Blockchain",
       rank: "Rank",
       business: "Business",
       owner: "Owner",

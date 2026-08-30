@@ -46,9 +46,9 @@ export default function ApplicationsList() {
     if (!apps) return [];
     let list = apps.filter(
       (a) =>
-        a.businessName.toLowerCase().includes(query.toLowerCase()) ||
-        a.owner.toLowerCase().includes(query.toLowerCase()) ||
-        a.sector.toLowerCase().includes(query.toLowerCase()),
+        a.businessName?.toLowerCase().includes(query.toLowerCase()) ||
+        a.owner?.toLowerCase().includes(query.toLowerCase()) ||
+        a.sector?.toLowerCase().includes(query.toLowerCase()),
     );
     if (filter === "eligible")
       list = list.filter((a) => a.eligibility.status === "eligible");

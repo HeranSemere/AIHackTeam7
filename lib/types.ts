@@ -1,11 +1,20 @@
-export type FieldStatus = "verified" | "extracted" | "needsConfirmation" | "missing" | "contradiction";
+export type FieldStatus =
+  | "verified"
+  | "extracted"
+  | "needsConfirmation"
+  | "missing"
+  | "contradiction";
 
 export interface EvidenceField {
   label: string;
   value: string;
   status: FieldStatus;
   source: string;
-  contradictionDetail?: { otherSource: string; otherValue: string; action: string };
+  contradictionDetail?: {
+    otherSource: string;
+    otherValue: string;
+    action: string;
+  };
 }
 
 export interface ScoreCriterion {
@@ -40,7 +49,10 @@ export interface Declaration {
   accepted: boolean;
 }
 
-export type EligibilityStatus = "eligible" | "provisionallyEligible" | "notEligible";
+export type EligibilityStatus =
+  | "eligible"
+  | "provisionallyEligible"
+  | "notEligible";
 
 export interface Application {
   id: string;
@@ -54,7 +66,12 @@ export interface Application {
   progress: number; // 0-100, applicant-side completeness
 
   employment: { total: number; female: number; male: number; youth: number };
-  financial: { annualSales2023: number; annualSales2024: number | null; revenueGrowth: string; fundingRequested: number };
+  financial: {
+    annualSales2023: number;
+    annualSales2024: number | null;
+    revenueGrowth: string;
+    fundingRequested: number;
+  };
   management: string;
   equipment: { item: string; qty: number; estValueETB: number }[];
   fundingRequest: { amount: number; purpose: string; expectedUse: string };
@@ -76,7 +93,12 @@ export interface Application {
   siteVisitQuestions: string[];
 
   recommendation: {
-    status: "Strongly Recommended" | "Recommended" | "Needs Review" | "Not Recommended" | "Ineligible";
+    status:
+      | "Strongly Recommended"
+      | "Recommended"
+      | "Needs Review"
+      | "Not Recommended"
+      | "Ineligible";
     summary: string;
   };
 
