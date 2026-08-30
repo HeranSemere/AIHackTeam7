@@ -4,6 +4,8 @@ A Flask-based backend that automatically fills grant and business application fo
 
 Business owners can describe their business through voice and provide supporting documents and photos. The backend uses AI to extract, translate, validate, and structure this information into a complete application that can be saved and ranked.
 
+```text
+
 Audio ───────────────► Speech-to-Text ──┐
                                         │
 Business License ────► OCR ─────────────┤
