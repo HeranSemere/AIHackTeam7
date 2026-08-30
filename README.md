@@ -4,18 +4,6 @@ A Flask-based backend that automatically fills grant and business application fo
 
 Business owners can describe their business through voice and provide supporting documents and photos. The backend uses AI to extract, translate, validate, and structure this information into a complete application that can be saved and ranked.
 
-```text
-
-Audio ───────────────► Speech-to-Text ──┐
-                                        │
-Business License ────► OCR ─────────────┤
-                                        ├──► AI Processing ──► Application JSON
-Workshop Photo ──────► Vision ──────────┘
-
-
-Applications ───────────────► Agentic ranking  ───────────────► Ranked applications
-
-
 ## How It Works
 
 The system supports **English, Amharic (አማርኛ), and Afaan Oromo (Afaan Oromoo)**.
