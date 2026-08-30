@@ -6,7 +6,13 @@ Business owners can describe their business through voice and provide supporting
 
 ## How It Works
 
+The system supports **English, Amharic (አማርኛ), and Afaan Oromo (Afaan Oromoo)**.
+
+
+
 ```text
+tl;dr
+
 Audio ───────────────► Speech-to-Text ──┐
                                         │
 Business License ────► OCR ─────────────┤
@@ -14,7 +20,7 @@ Business License ────► OCR ─────────────┤
 Workshop Photo ──────► Vision ──────────┘
 ```
 
-The system supports **English, Amharic (አማርኛ), and Afaan Oromo (Afaan Oromoo)**.
+
 
                          ┌─────────────────────────────┐
                          │        USER INPUT           │
