@@ -30,7 +30,7 @@ export default function ApplicantDashboard() {
     apps?.filter((app) => app.status !== "draft").slice(0, 3) ?? [];
 
   return (
-    <div className="mx-auto w-full max-w-6xl">
+    <div className="mx-auto w-full">
       {/* Hero */}
       <section className="relative overflow-hidden rounded-[2rem] bg-coffee px-6 py-10 text-white shadow-card sm:px-10 sm:py-14">
         <div className="relative z-10 max-w-2xl">

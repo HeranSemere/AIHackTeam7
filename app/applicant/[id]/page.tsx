@@ -100,7 +100,7 @@ export default function ApplicantApplication() {
 
   if (submitted) {
     return (
-      <div className="mx-auto max-w-md py-16 text-center">
+      <div className="mx-auto  py-16 text-center">
         <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-forest-light text-3xl text-forest">
           ✓
         </div>
