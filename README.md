@@ -12,7 +12,7 @@ Audio ───────────────► Speech-to-Text ──┐
 Business License ────► OCR ─────────────┤
                                         ├──► AI Processing ──► Application JSON
 Workshop Photo ──────► Vision ──────────┘
-
+```
 
 The system supports English, Amharic (አማርኛ), and Afaan Oromo (Afaan Oromoo).
 
