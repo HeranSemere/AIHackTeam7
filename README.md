@@ -9,19 +9,6 @@ Business owners can describe their business through voice and provide supporting
 The system supports **English, Amharic (አማርኛ), and Afaan Oromo (Afaan Oromoo)**.
 
 
-
-```text
-tl;dr
-
-Audio ───────────────► Speech-to-Text ──┐
-                                        │
-Business License ────► OCR ─────────────┤
-                                        ├──► AI Processing ──► Application JSON
-Workshop Photo ──────► Vision ──────────┘
-```
-
-
-
                          ┌─────────────────────────────┐
                          │        USER INPUT           │
                          └──────────────┬──────────────┘
@@ -39,35 +26,19 @@ Workshop Photo ──────► Vision ──────────┘
              │                          │                          │
              ▼                          ▼                          ▼
     ┌─────────────────┐        ┌─────────────────┐        ┌─────────────────┐
-    │  SPEECH-TO-TEXT │        │       OCR       │        │     GPT-5.6      │
-    │                 │        │                 │        │      LUNA       │
-    │ Whisper /       │        │ Document        │        │ Vision          │
-    │ appropriate ASR │        │ extraction      │        │                 │
+    │  SPEECH-TO-TEXT │        │       OCR       │        │      Vision     │
+    │                 │        │                 │        │   **Agent**:    │
+    │ ElevenLabs /    │        │     OCRSpace    │        │  GPT-5.6-LUNA   │
+    │ AssemblyAI/     │        │                 │        │                 │
+    │ appropriate ASR │        │                 │        │                 │
     └────────┬────────┘        └────────┬────────┘        └────────┬────────┘
              │                          │                          │
              └──────────────────────────┼──────────────────────────┘
                                         │
                                         ▼
                          ┌─────────────────────────────┐
-                         │       GPT-5.6 LUNA          │
-                         │                             │
-                         │  Information Extraction    │
-                         │                             │
-                         │  • Understand context      │
-                         │  • Combine all inputs       │
-                         │  • Extract grant fields     │
-                         └──────────────┬──────────────┘
-                                        │
-                                        ▼
-                         ┌─────────────────────────────┐
-                         │   PYDANTIC STRUCTURED DATA  │
-                         │                             │
-                         │   Validated Grant Fields    │
-                         └──────────────┬──────────────┘
-                                        │
-                                        ▼
-                         ┌─────────────────────────────┐
                          │   NORMALIZE & TRANSLATE     │
+                         │   **Agent**: Gemini         │
                          │                             │
                          │   → English                 │
                          │   → Standardized fields     │
@@ -75,17 +46,37 @@ Workshop Photo ──────► Vision ──────────┘
                                         │
                                         ▼
                          ┌─────────────────────────────┐
-                         │     GRANT APPLICATION      │
-                         │            FORM             │
+                         │   Information Extraction    │
                          │                             │
-                         │   AI-populated + editable   │
+                         │   **Agent**: GPT-5.6 LUNA + │
+                         │        Pydantic fields      │
+                         │                             │
+                         │  • Understand context       │
+                         │  • Combine all inputs       │
+                         │  • Extract grant fields     │
+                         └──────────────┬──────────────┘
+                                        │
+                                        ▼ language  
+                         ┌─────────────────────────────┐
+                         │   PYDANTIC STRUCTURED DATA  │
+                         │                             │
+                         │   Validate/enforce Grant    │
+                         │     Fields                  │
                          └──────────────┬──────────────┘
                                         │
                                         ▼
                          ┌─────────────────────────────┐
                          │    TRANSLATE FOR USER       │
+                         │  **Agent**:  GPT-5-mini     │
+                         │ English / Amharic / Oromo   │
+                         └──────────────┬──────────────┘
+                                        │
+                                        ▼
+                         ┌─────────────────────────────┐
+                         │     GRANT APPLICATION       │
+                         │            FORM             │
                          │                             │
-                         │ English / Amharic / Oromo  │
+                         │   populated + editable      │
                          └──────────────┬──────────────┘
                                         │
                                         ▼
